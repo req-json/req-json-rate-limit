@@ -71,7 +71,7 @@ export default function (options = {}) {
     try {
       await next();
     } catch (e) {
-      onFinish(e);
+      onFinish(e, ctx);
       throw e;
     }
     onFinish(false, ctx);
