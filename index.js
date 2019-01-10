@@ -21,6 +21,9 @@ export default function (options = {}) {
       'PUT',
     ];
   }
+  if (!options.frequency) {
+    options.frequency = 1000;
+  }
   const rateLimitCache = {};
   return async function rateLimit(ctx, next) {
     if (options.methods.indexOf(ctx.method) < 0) {
