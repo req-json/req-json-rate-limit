@@ -1,17 +1,22 @@
 import serializeRequest from '@req-json/serialize-request';
 
+const {
+  stringify,
+  parse,
+} = JSON;
+
 function getCachedProperty(ctx) {
   return {
-    response: ctx.response,
+    response: stringify(ctx.response),
     status: ctx.status,
-    header: ctx.header,
+    header: stringify(ctx.header),
   };
 }
 
 function setCachedProperty(ctx, newCtx) {
-  ctx.response = newCtx.response;
+  ctx.response = parse(newCtx.response);
   ctx.status = newCtx.status;
-  ctx.header = newCtx.header;
+  ctx.header = parse(newCtx.header);
 }
 
 export default function (options = {}) {
@@ -32,16 +37,21 @@ export default function (options = {}) {
     }
     const request = serializeRequest(ctx);
     if (rateLimitCache[request]) {
-      if (rateLimitCache[request].c) {
-        setCachedProperty(ctx, rateLimitCache[request].c);
-        if (rateLimitCache[request].e) {
-          throw rateLimitCache[request].e;
+      const cached = rateLimitCache[request];
+      const {
+        c,
+        e,
+      } = cached;
+      if (c) {
+        setCachedProperty(ctx, c);
+        if (e) {
+          throw e;
         }
         return;
       }
       setCachedProperty(ctx, await new Promise((res, rej) => {
-        rateLimitCache[request].res.push(res);
-        rateLimitCache[request].rej.push(rej);
+        cached.res.push(res);
+        cached.rej.push(rej);
       }));
       return;
     }
@@ -58,12 +68,13 @@ export default function (options = {}) {
     };
     const onFinish = (err, context) => {
       if (rateLimitCache[request]) {
-        rateLimitCache[request].c = getCachedProperty(context);
-        rateLimitCache[request].e = err;
-        rateLimitCache[request][err ? 'rej' : 'res'].forEach((r) => {
-          r(err || getCachedProperty(context));
+        const cached = rateLimitCache[request];
+        const c = cached.c = getCachedProperty(context);
+        cached.e = err;
+        cached[err ? 'rej' : 'res'].forEach((r) => {
+          r(err || c);
         });
-        if (!rateLimitCache[request].t) {
+        if (!cached.t) {
           delete rateLimitCache[request];
         }
       }
