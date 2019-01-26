@@ -1,6 +1,6 @@
 {
   "name": "@req-json/rate-limit",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Rate limit middleware for req-json.",
   "keywords": [
     "req-json",
