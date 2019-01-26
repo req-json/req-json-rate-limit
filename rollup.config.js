@@ -22,6 +22,7 @@ export default [
     ],
     external: [
       '@req-json/serialize-request',
+      'async-throttle-cache',
     ],
     plugins,
   },

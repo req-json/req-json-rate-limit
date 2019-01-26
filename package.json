@@ -30,7 +30,8 @@
     "test": "jest test --collectCoverage --coverageDirectory ./coverage/"
   },
   "dependencies": {
-    "@req-json/serialize-request": "^0.1.0"
+    "@req-json/serialize-request": "^0.1.0",
+    "async-throttle-cache": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
