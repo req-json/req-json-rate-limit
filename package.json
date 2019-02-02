@@ -25,13 +25,13 @@
   "jsdelivr": "dist/rate-limit.js",
   "sideEffects": false,
   "scripts": {
-    "prebuild": "eslint --fix *.js",
+    "prebuild": "eslint --fix *.js test",
     "build": "rollup -c",
-    "test": "jest test --collectCoverage --coverageDirectory ./coverage/"
+    "test": "jest test --coverage"
   },
   "dependencies": {
-    "@req-json/serialize-request": "^0.1.0",
-    "async-throttle-cache": "^1.0.0"
+    "@req-json/serialize-request": "^1.0.1",
+    "async-throttle-cache": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -45,12 +45,13 @@
     "eslint-plugin-jest": "^22.0.0",
     "fast-async": "^7.0.6",
     "jest": "^23.6.0",
+    "req-json": "^2.1.0",
     "rollup": "^0.68.0",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-node-resolve": "^4.0.0",
     "xhr-mock": "^2.3.1"
   },
   "peerDependencies": {
-    "req-json": ">=2.0.0"
+    "req-json": "^2.1.0"
   }
 }

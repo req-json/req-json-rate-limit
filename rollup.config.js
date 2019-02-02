@@ -30,7 +30,7 @@ export default [
     input: 'index.js',
     output: [
       {
-        name: 'ReqJSONRateLimit',
+        name: 'reqJSONRateLimit',
         file: pkg.unpkg,
         format: 'umd',
       },

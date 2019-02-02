@@ -23,18 +23,18 @@ npm install @req-json/rate-limit --save
 
 ```js
 import ReqJSON from 'req-json';
-import reqJSONERateLimit from '@req-json/rate-limit';
+import reqJSONRateLimit from '@req-json/rate-limit';
 
 const reqJSON = new ReqJSON();
-reqJSON.use(reqJSONERateLimit());
+reqJSON.use(reqJSONRateLimit());
 ```
 
 ### Browser
 
-Direct `<script>` include
+Direct `<script>` include `window.reqJSONRateLimit`
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@req-json/rate-limit"></script>
+<script src="https://cdn.jsdelivr.net/npm/@req-json/rate-limit@1"></script>
 ```
 
 ## Options
@@ -42,7 +42,7 @@ Direct `<script>` include
 Rate limit middleware options and defaults.
 
 ```js
-reqJSON.use(reqJSONERateLimit({
+reqJSON.use(reqJSONRateLimit({
   methods: [ // request methods to apply rate limit
     'POST',
     'PUT'
