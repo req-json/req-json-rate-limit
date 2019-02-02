@@ -8,7 +8,7 @@
 
 [![github][github-issues]][github]
 [![travis][travis-build]][travis]
-[![codecov][codecov-svg]][codecov]
+[![coverage][coveralls-svg]][coveralls]
 
 
 Rate limit middleware for [req-json][req-json].
@@ -65,5 +65,5 @@ reqJSON.use(reqJSONRateLimit({
 [travis]: https://travis-ci.org/req-json/req-json-rate-limit
 [travis-build]: https://travis-ci.org/req-json/req-json-rate-limit.svg?branch=master
 
-[codecov]: https://codecov.io/gh/req-json/rate-limit
-[codecov-svg]: https://img.shields.io/codecov/c/github/req-json/rate-limit.svg
+[coveralls]: https://coveralls.io/github/req-json/req-json-rate-limit?branch=master
+[coveralls-svg]: https://coveralls.io/repos/github/req-json/req-json-rate-limit/badge.svg?branch=master
