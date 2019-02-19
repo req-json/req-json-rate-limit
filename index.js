@@ -1,10 +1,12 @@
 import serializeRequest from '@req-json/serialize-request';
 import asyncThrottleCache from 'async-throttle-cache';
 
-const {
-  stringify,
-  parse,
-} = JSON;
+function clone(obj) {
+  if (obj == null) {
+    return obj;
+  }
+  return JSON.parse(JSON.stringify(obj));
+}
 
 export default function ({
   methods = [
@@ -22,9 +24,9 @@ export default function ({
     }
     return rateLimitThrottle(ctx, next)
       .then((newCtx) => {
-        ctx.response = parse(stringify(newCtx.response));
+        ctx.response = clone(newCtx.response);
         ctx.status = newCtx.status;
-        ctx.header = parse(stringify(newCtx.header));
+        ctx.header = clone(newCtx.header);
       });
   };
 }

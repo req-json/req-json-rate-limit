@@ -96,3 +96,31 @@ it('no limit on exceed time limit', async () => {
     })));
   expect(fn).toHaveBeenCalledTimes(2);
 });
+
+it('resolves undefined response', async () => {
+  const reqJSON = new ReqJSON();
+  const resource = reqJSON.resource('/api/item/:id');
+  const fn = jest.fn();
+
+  reqJSON.use(reqJSONRateLimit({
+    frequency: 5,
+  }));
+
+  reqJSON.use(async (ctx, next) => {
+    await next();
+    ctx.response = undefined;
+  });
+
+  mock.put('/api/item/1', (req, res) => {
+    fn();
+    return res
+      .status(204);
+  });
+
+  expect(await resource.put({
+    id: 1,
+  })).toEqual(await resource.put({
+    id: 1,
+  }));
+  expect(fn).toHaveBeenCalledTimes(1);
+});
