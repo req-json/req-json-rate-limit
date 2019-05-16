@@ -45,10 +45,10 @@
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jest": "^22.0.0",
     "fast-async": "^7.0.6",
-    "jest": "^23.6.0",
-    "rollup": "^0.68.0",
+    "jest": "^24.8.0",
+    "rollup": "^1.12.1",
     "rollup-plugin-babel": "^4.0.3",
-    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.0.0",
     "xhr-mock": "^2.3.1"
   }
 }
