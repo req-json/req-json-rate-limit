@@ -1,7 +1,5 @@
 # @req-json/rate-limit
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/req-json/req-json-rate-limit.svg)](https://greenkeeper.io/)
-
 [![npm][badge-version]][npm]
 [![bundle size][badge-size]][bundlephobia]
 [![npm downloads][badge-downloads]][npm]

@@ -2,6 +2,9 @@
   "presets": [
     [
       "@babel/preset-env", {
+        "targets": {
+          "node": "current",
+        },
         "loose": true,
         "exclude": [
           "transform-typeof-symbol"
