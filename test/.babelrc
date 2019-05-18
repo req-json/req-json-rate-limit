@@ -7,7 +7,7 @@
         },
         "loose": true,
         "exclude": [
-          "transform-typeof-symbol"
+          "@babel/plugin-transform-typeof-symbol"
         ]
       }
     ]

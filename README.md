@@ -66,8 +66,8 @@ reqJSON.use(reqJSONRateLimit({
 [badge-issues]: https://img.shields.io/github/issues/req-json/req-json-rate-limit.svg
 [github]: https://github.com/req-json/req-json-rate-limit
 
-[badge-build]: https://travis-ci.org/req-json/req-json-rate-limit.svg?branch=master
+[badge-build]: https://img.shields.io/travis/req-json/req-json-rate-limit/master.svg
 [travis]: https://travis-ci.org/req-json/req-json-rate-limit
 
-[badge-coverage]: https://coveralls.io/repos/github/req-json/req-json-rate-limit/badge.svg?branch=master
+[badge-coverage]: https://img.shields.io/coveralls/github/req-json/req-json-rate-limit/master.svg
 [coveralls]: https://coveralls.io/github/req-json/req-json-rate-limit?branch=master
