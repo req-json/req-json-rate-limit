@@ -27,5 +27,37 @@
         "useRuntimeModule": true
       }
     ]
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env", {
+            "loose": true,
+            "exclude": [
+              "@babel/plugin-transform-typeof-symbol",
+              "@babel/plugin-transform-async-to-generator",
+              "@babel/plugin-transform-regenerator"
+            ]
+          }
+        ]
+      ],
+      "plugins": [
+        [
+          "module:fast-async", {
+            "env": {
+              "log": false
+            },
+            "compiler": {
+              "promises": true,
+              "generators": false,
+              "noRuntime": true
+            },
+            "runtimePattern": null,
+            "useRuntimeModule": true
+          }
+        ]
+      ]
+    }
+  }
 }

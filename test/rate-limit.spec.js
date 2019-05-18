@@ -1,6 +1,6 @@
 import mock from 'xhr-mock';
 import ReqJSON from 'req-json';
-import reqJSONRateLimit from '..';
+import reqJSONRateLimit from '../index';
 
 beforeEach(() => mock.setup());
 
